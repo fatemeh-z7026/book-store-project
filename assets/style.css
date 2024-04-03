@@ -1,0 +1,106 @@
+:root {
+  --color-body: #f9f3ec;
+}
+html {
+  /*62.5% of 16px =10px*/
+  font-size: 62.5%;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/*Typography*/
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.5;
+  background-color: var(--color-body);
+  color: #2f3a8f;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-heading);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  text-transform: capitalize;
+}
+
+h1 {
+  /*1 * font size of the html element*/
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+p {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  h1 {
+    font-size: 8rem;
+  }
+  h2 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+}
+
+/*Links*/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*Header*/
+.nav {
+  background-color: #bed7dc;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+.nav-item {
+  padding: 0.5rem 2rem;
+}
+
+.nav-item:hover{
+text-decoration: underline;}
+
+.nav-item a {
+  font-weight: 700;
+}
+
+.nav-brand-img {
+  width: 100%;
+  max-width: 80px;
+  padding-top: 1rem;
+}
