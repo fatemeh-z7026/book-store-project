@@ -58,6 +58,7 @@ let allProducts = [
 let shoppingCart = [];
 let $ = document;
 let productCardContainer = $.querySelector(".product-card-container");
+let shopCartContainer = $.querySelector(".basket-item");
 
 allProducts.forEach(function (product) {
   productCardContainer.insertAdjacentHTML(
@@ -70,6 +71,35 @@ allProducts.forEach(function (product) {
       product.price +
       '$</h6><p class="card-text">' +
       product.description +
-      '</p><button class="btn btn-card" type="submit">add to cart</button> <button class="btn btn-card" type="submit">See More ...</button></div></div></div></div>'
+      '</p><button class="btn btn-card" onclick="addProductToCart(' +
+      product.id +
+      ')" type="submit">add to cart</button> <button class="btn btn-card"  type="submit">See More ...</button></div></div></div></div>'
   );
 });
+
+function addProductToCart(productId) {
+  let selectedProduct = allProducts.find(function (product) {
+    return product.id === productId;
+  });
+
+  shoppingCart.push(selectedProduct);
+  cartProductGenerator(shoppingCart);
+  console.log(shoppingCart);
+}
+
+function cartProductGenerator(allProductsArray) {
+  shopCartContainer.innerHTML = "";
+  allProductsArray.forEach(function (product) {
+    shopCartContainer.insertAdjacentHTML(
+      "beforeend",
+      '<ol class="list-group shop-cart p-2"><li class="list-group-item shop-cart-item d-flex justify-content-between align-items-center pb-3">' +
+        product.title +
+        '<span class="product-price">' +
+        product.price +
+        '$</span><span class="product-count">' +
+        product.count +
+        '</span><i class="fa fa-trash-o delete" ></i><i class="fa fa-plus plus"></i></li></ol>'
+    );
+  });
+}
+

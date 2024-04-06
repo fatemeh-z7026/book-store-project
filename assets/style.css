@@ -105,9 +105,10 @@ header {
 /*Icon*/
 i {
   color: #ff0000;
+  cursor: pointer;
 }
 
-.shop-cart {
+.shop-cart-container {
   border: solid 1px var(--border-color);
 }
 .shop-cart-item {
@@ -116,4 +117,15 @@ i {
 
 .total-price {
   padding: 0.5rem 1rem;
+}
+
+.product-price,
+.product-count {
+  font-size: 1.2rem;
+}
+.basket-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
 }
