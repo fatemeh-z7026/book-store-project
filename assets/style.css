@@ -13,6 +13,12 @@ html {
   box-sizing: border-box;
 }
 
+li::selection {
+  background-color: inherit;
+}
+span::selection {
+  background-color: inherit;
+}
 /*Typography*/
 
 body {

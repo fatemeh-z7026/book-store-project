@@ -80,15 +80,13 @@ allProducts.forEach(function (product) {
 });
 
 function addProductToCart(productId) {
-  let selectedProduct = allProducts.find(function (product) {
-    return product.id === productId;
-  });
+  //Return the product that have the same ID as the selected product
+  let selectedProduct = allProducts.find((product) => product.id === productId);
 
-  let hasProduct = shoppingCart.some(function (product) {
-    return product.id === selectedProduct.id;
-  });
+  //Check selected product is in cart or not
+  let hasProduct = shoppingCart.some((product) => product.id === productId);
   if (hasProduct) {
-    alert("product has been already added");
+    alert("Product Has Been Already Added");
   } else {
     shoppingCart.push(selectedProduct);
     cartProductGenerator(shoppingCart);
@@ -99,50 +97,39 @@ function cartProductGenerator(allProductsArray) {
   shopCartContainer.innerHTML = "";
 
   allProductsArray.forEach(function (product) {
-    let cartProductList = $.createElement("ol");
-    cartProductList.className = "list-group shop-cart p-2";
+    let content =
+      '<ol class="list-group shop-cart p-2"><li class="list-group-item shop-cart-item d-flex justify-content-between align-items-center pb-3">' +
+      product.title +
+      '<span class="product-price">' +
+      product.price +
+      '$</span><span  class="product-count">' +
+      product.count +
+      '</span><i class="fa fa-trash-o delete" onclick="removeProduct(' +
+      product.id +
+      ')"></i><i class="fa fa-plus plus"  ></i></li></ol>';
 
-    let cartProduct = $.createElement("li");
-    cartProduct.className =
-      "list-group-item shop-cart-item d-flex justify-content-between align-items-center pb-3";
-    cartProduct.innerHTML = product.title;
-
-    let cartProductPrice = $.createElement("span");
-    cartProductPrice.className = "product-price";
-    cartProductPrice.innerHTML = product.price;
-
-    let cartProductCount = $.createElement("span");
-    cartProductCount.className = "product-count";
-    cartProductCount.innerHTML = product.count;
-
-    let cartProductDelete = $.createElement("i");
-    cartProductDelete.className = "fa fa-trash-o delete";
-    cartProductDelete.addEventListener("click", function () {
-      removeProduct(product.id);
-    });
-
-    let cartProducrAdd = $.createElement("i");
-    cartProducrAdd.className = "fa fa-plus plus inc";
-    cartProducrAdd.addEventListener("click", function () {});
-
-    cartProduct.append(
-      cartProductPrice,
-      cartProductCount,
-      cartProductDelete,
-      cartProducrAdd
-    );
-    cartProductList.append(cartProduct);
-    shopCartContainer.appendChild(cartProductList);
+    shopCartContainer.insertAdjacentHTML("beforeend", content);
   });
 }
 
 //remove selected product
 function removeProduct(productId) {
-  //update value of shopping cart
-  shoppingCart = shoppingCart.filter(function (product) {
-    //return products that their id are not the same as clicked product
-    return product.id !== productId;
-  });
+  //Update new value for shopping cart
+  shoppingCart = shoppingCart.filter(
+    (product) =>
+      //Returns all products that do not have the same ID as the selected product
+      product.id !== productId
+  );
+  //Generate in dom
   cartProductGenerator(shoppingCart);
   console.log(shoppingCart);
 }
+
+//Remove All products
+
+function removeAllProducts() {
+  shoppingCart = [];
+  cartProductGenerator(shoppingCart);
+}
+
+
