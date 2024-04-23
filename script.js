@@ -106,7 +106,9 @@ function cartProductGenerator(allProductsArray) {
       product.count +
       '</span><i class="fa fa-trash-o delete" onclick="removeProduct(' +
       product.id +
-      ')"></i><i class="fa fa-plus plus"  ></i></li></ol>';
+      ')"></i><i class="fa fa-plus plus"  onclick="productCount(' +
+      product.id +
+      ')"></i></li></ol>';
 
     shopCartContainer.insertAdjacentHTML("beforeend", content);
   });
@@ -120,7 +122,7 @@ function removeProduct(productId) {
       //Returns all products that do not have the same ID as the selected product
       product.id !== productId
   );
-  //Generate in dom
+  //Update the UI
   cartProductGenerator(shoppingCart);
   console.log(shoppingCart);
 }
@@ -132,4 +134,11 @@ function removeAllProducts() {
   cartProductGenerator(shoppingCart);
 }
 
-
+//Update quantity of product
+function productCount(productId) {
+  let selectedPro = shoppingCart.find((product) => product.id === productId);
+  if (selectedPro) {
+    selectedPro.count++; // Increment the count of the product
+    cartProductGenerator(shoppingCart); // Update the UI
+  }
+}
