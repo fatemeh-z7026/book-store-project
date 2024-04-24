@@ -60,8 +60,11 @@ let $ = document;
 let productCardContainer = $.querySelector(".product-card-container");
 let shopCartContainer = $.querySelector(".basket-item");
 let totalPriceElem = $.querySelector(".total-price");
+let infoAlert = $.querySelector(".info-alert");
 
 productCardContainer.innerHTML = "";
+
+//Generate Products List
 allProducts.forEach(function (product) {
   productCardContainer.insertAdjacentHTML(
     "beforeend",
@@ -79,6 +82,17 @@ allProducts.forEach(function (product) {
   );
 });
 
+//Create Modal
+let modal =
+  '<div class="modal fade" id="myModal" tabindex="-1"aria-labelledby="exampleModalLabelaria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-sm "><div class="modal-content"><div class="modal-header p-5"><h5 class="modal-title" id="exampleModalLabel">Product Has Been Already Added</h5><button type="button" class="btn-close close" data-bs-dismiss="modal"aria-label="Close"></button></div></div></div></div>';
+$.body.insertAdjacentHTML("beforeend", modal);
+function openModal() {
+  let myModal = new bootstrap.Modal(document.getElementById("myModal"), {
+    keyboard: false,
+    focus: true,
+  });
+  myModal.show();
+}
 function addProductToCart(productId) {
   //Return the product that have the same ID as the selected product
   let selectedProduct = allProducts.find((product) => product.id === productId);
@@ -86,13 +100,14 @@ function addProductToCart(productId) {
   //Check selected product is in cart or not
   let hasProduct = shoppingCart.some((product) => product.id === productId);
   if (hasProduct) {
-    alert("Product Has Been Already Added");
+    openModal();
   } else {
     shoppingCart.push(selectedProduct);
     cartProductGenerator(shoppingCart);
   }
 }
 
+//Generate Shopping Cart(Basket)
 function cartProductGenerator(allProductsArray) {
   shopCartContainer.innerHTML = "";
 
