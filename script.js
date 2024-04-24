@@ -60,10 +60,8 @@ let $ = document;
 let productCardContainer = $.querySelector(".product-card-container");
 let shopCartContainer = $.querySelector(".basket-item");
 let totalPriceElem = $.querySelector(".total-price");
-let infoAlert = $.querySelector(".info-alert");
 
 productCardContainer.innerHTML = "";
-
 //Generate Products List
 allProducts.forEach(function (product) {
   productCardContainer.insertAdjacentHTML(
