@@ -138,8 +138,10 @@ function removeProduct(productId) {
       //Returns all products that do not have the same ID as the selected product
       product.id !== productId
   );
+
   //Update the UI
   cartProductGenerator(shoppingCart);
+  calTotalPrice(shoppingCart);
   console.log(shoppingCart);
 }
 
