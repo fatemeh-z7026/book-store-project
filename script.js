@@ -12,7 +12,7 @@ let allProducts = [
     id: 2,
     title: "Black Girl",
     src: "assets/images/black girl.jpg",
-    price: 5,
+    price: 15,
     count: 1,
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -21,7 +21,7 @@ let allProducts = [
     id: 3,
     title: "Jumps In",
     src: "assets/images/jumps injpg.jpg",
-    price: 5,
+    price: 25,
     count: 1,
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -30,7 +30,7 @@ let allProducts = [
     id: 4,
     title: "Our Moon",
     src: "assets/images/our moon.jpg",
-    price: 5,
+    price: 30,
     count: 1,
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -39,7 +39,7 @@ let allProducts = [
     id: 5,
     title: "Entanglad Life",
     src: "assets/images/entangled life.jpg",
-    price: 5,
+    price: 20,
     count: 1,
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -48,7 +48,7 @@ let allProducts = [
     id: 6,
     title: "Bear",
     src: "assets/images/bear.jpg",
-    price: 5,
+    price: 35,
     count: 1,
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer..",
@@ -91,6 +91,8 @@ function openModal() {
   });
   myModal.show();
 }
+
+//Add product to cart
 function addProductToCart(productId) {
   //Return the product that have the same ID as the selected product
   let selectedProduct = allProducts.find((product) => product.id === productId);
@@ -102,6 +104,7 @@ function addProductToCart(productId) {
   } else {
     shoppingCart.push(selectedProduct);
     cartProductGenerator(shoppingCart);
+    calTotalPrice(shoppingCart);
   }
 }
 
@@ -154,4 +157,17 @@ function productCount(productId) {
     selectedPro.count++; // Increment the count of the product
     cartProductGenerator(shoppingCart); // Update the UI
   }
+}
+
+//Calculate total price
+
+function calTotalPrice(allProductsArray) {
+  let totalPrice = 0;
+
+  allProductsArray.forEach(
+    (product) => (totalPrice += product.price * product.count)
+  );
+  console.log(totalPrice);
+
+  totalPriceElem.innerHTML = "Total Price: " + " " + totalPrice;
 }
