@@ -3,6 +3,10 @@
 
 // Include any default variable overrides here (though functions won't be available)
 
+$modal-content-bg:#194769;
+$modal-content-color:#FFF;
+$modal-header-border-color:#194769;
+$modal-header-border-width:  none;
 @import "node_modules/bootstrap/scss/bootstrap";
 
 @import "node_modules/bootstrap/scss/functions";
@@ -14,9 +18,7 @@
 
 // Then add additional custom code here
 
-    $bs-body-font-size:7.6rem;
-    $bg-body-tertiary:red ;
-    $bs-navbar-hover-color :#fff;
+ 
 
 
     

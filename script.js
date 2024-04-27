@@ -82,7 +82,7 @@ allProducts.forEach(function (product) {
 
 //Create Modal
 let modal =
-  '<div class="modal fade" id="myModal" tabindex="-1"aria-labelledby="exampleModalLabelaria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-sm "><div class="modal-content"><div class="modal-header p-5"><h5 class="modal-title" id="exampleModalLabel">Product Has Been Already Added</h5><button type="button" class="btn-close close" data-bs-dismiss="modal"aria-label="Close"></button></div></div></div></div>';
+  '<div class="modal fade" id="myModal" tabindex="-1"aria-labelledby="exampleModalLabelaria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-sm "><div class="modal-content"><div class="modal-header p-5"><h5 class="modal-title" id="exampleModalLabel">Product Has Been Already Added</h5><button type="button" class="btn-close btn-close-white close " data-bs-dismiss="modal"aria-label="Close"></button></div></div></div></div>';
 $.body.insertAdjacentHTML("beforeend", modal);
 function openModal() {
   let myModal = new bootstrap.Modal(document.getElementById("myModal"), {
