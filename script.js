@@ -148,6 +148,7 @@ function removeProduct(productId) {
 function removeAllProducts() {
   shoppingCart = [];
   cartProductGenerator(shoppingCart);
+  totalPriceElem.innerHTML = "Total Price";
 }
 
 //Update quantity of product
