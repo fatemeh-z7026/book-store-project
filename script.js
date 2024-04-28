@@ -53,6 +53,42 @@ let allProducts = [
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer..",
   },
+  {
+    id: 7,
+    title: "Our Moon",
+    src: "assets/images/our moon.jpg",
+    price: 30,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+  },
+  {
+    id: 8,
+    title: "Entanglad Life",
+    src: "assets/images/entangled life.jpg",
+    price: 20,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+  },
+  {
+    id: 9,
+    title: "Bear",
+    src: "assets/images/bear.jpg",
+    price: 35,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer..",
+  },
+  {
+    id: 10,
+    title: "Black Girl",
+    src: "assets/images/black girl.jpg",
+    price: 15,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+  },
 ];
 
 let shoppingCart = [];
@@ -60,25 +96,41 @@ let $ = document;
 let productCardContainer = $.querySelector(".product-card-container");
 let shopCartContainer = $.querySelector(".basket-item");
 let totalPriceElem = $.querySelector(".total-price");
+let paginationContainer = $.querySelector(".pagination-container");
+let currentPage = 1;
+let rowCount = 6;
 
-productCardContainer.innerHTML = "";
 //Generate Products List
-allProducts.forEach(function (product) {
-  productCardContainer.insertAdjacentHTML(
-    "beforeend",
-    '<div class="card mb-3"><div class="row g-0"><div class="col-md-4"><img src="' +
-      product.src +
-      '" class="img-fluid rounded-start card-img" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">' +
-      product.title +
-      '</h5><h6 class="card-subtitle mb-3 mt-3 text-body-secondary">' +
-      product.price +
-      '$</h6><p class="card-text">' +
-      product.description +
-      '</p><button class="btn btn-card" onclick="addProductToCart(' +
-      product.id +
-      ')" type="submit">add to cart</button> <button class="btn btn-card"  type="submit">See More ...</button></div></div></div></div>'
-  );
-});
+function displayProducts(
+  allProducts,
+  productCardContainer,
+  currentPage,
+  rowCount
+) {
+  productCardContainer.innerHTML = "";
+
+  let endIndex = currentPage * rowCount;
+  let startIndex = endIndex - rowCount;
+
+  let paginatedProduct = allProducts.slice(startIndex, endIndex);
+  console.log(paginatedProduct);
+  paginatedProduct.forEach(function (product) {
+    productCardContainer.insertAdjacentHTML(
+      "beforeend",
+      '<div class="card mb-3"><div class="row g-0"><div class="col-md-4"><img src="' +
+        product.src +
+        '" class="img-fluid rounded-start card-img" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">' +
+        product.title +
+        '</h5><h6 class="card-subtitle mb-3 mt-3 text-body-secondary">' +
+        product.price +
+        '$</h6><p class="card-text">' +
+        product.description +
+        '</p><button class="btn btn-card" onclick="addProductToCart(' +
+        product.id +
+        ')" type="submit">add to cart</button> <button class="btn btn-card"  type="submit">See More ...</button></div></div></div></div>'
+    );
+  });
+}
 
 //Create Modal
 let modal =
@@ -174,3 +226,10 @@ function calTotalPrice(allProductsArray) {
 
   totalPriceElem.innerHTML = "Total Price: " + " " + totalPrice;
 }
+
+//Generate Pages
+let pagination =
+  '<nav aria-label="Page navigation example"><ul class="pagination pagination-lg d-flex justify-content-center"><li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li><li class="page-item"><a class="page-link" href="#">1</a></li><li class="page-item"><a class="page-link" href="#">2</a></li><li class="page-item"><a class="page-link" href="#">3</a></li><li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li></ul></nav>';
+paginationContainer.insertAdjacentHTML("beforeend", pagination);
+
+displayProducts(allProducts, productCardContainer, currentPage, rowCount);
