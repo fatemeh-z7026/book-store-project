@@ -96,7 +96,8 @@ let $ = document;
 let productCardContainer = $.querySelector(".product-card-container");
 let shopCartContainer = $.querySelector(".basket-item");
 let totalPriceElem = $.querySelector(".total-price");
-let paginationContainer = $.querySelector(".pagination-container");
+// let paginationContainer = $.querySelector(".pagination-container");
+let pageItemnext = $.querySelector(".next-page-item");
 let currentPage = 1;
 let rowCount = 6;
 
@@ -227,9 +228,17 @@ function calTotalPrice(allProductsArray) {
   totalPriceElem.innerHTML = "Total Price: " + " " + totalPrice;
 }
 
-//Generate Pages
-let pagination =
-  '<nav aria-label="Page navigation example"><ul class="pagination pagination-lg d-flex justify-content-center"><li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li><li class="page-item"><a class="page-link" href="#">1</a></li><li class="page-item"><a class="page-link" href="#">2</a></li><li class="page-item"><a class="page-link" href="#">3</a></li><li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li></ul></nav>';
-paginationContainer.insertAdjacentHTML("beforeend", pagination);
+//Pagination
+
+//// Modify the paginationBtnGenerator function to handle page navigation
+function paginationBtnGenerator() {
+  let paginationBtn =
+    '<li class="page-item " onclick="changePage(' +
+    page +
+    ')"><a class="page-link" href="#">' +
+    page +
+    "</a></li>'";
+  pageItemnext.insertAdjacentHTML("afterbegin", paginationBtn);
+}
 
 displayProducts(allProducts, productCardContainer, currentPage, rowCount);
