@@ -249,6 +249,11 @@ function paginationBtnGenerator(page) {
     page +
     "</a></li>";
   pageItemnext.insertAdjacentHTML("beforebegin", paginationBtn);
+
+  let paginationButton = document.querySelector(".page-item-num");
+  if (page === 1) {
+    paginationButton.classList.add("active"); //Add active class to first page
+  }
 }
 
 //change the current page and update the displayed products
