@@ -240,9 +240,10 @@ function setupPagination(allProducts, pageItemnext, rowCount) {
   console.log(pageCount);
 }
 //handle page navigation
+
 function paginationBtnGenerator(page) {
   let paginationBtn =
-    '<li class="page-item " onclick="changePage(' +
+    '<li class="page-item page-item-num " onclick="changePage(' +
     page +
     ')"><a class="page-link" href="#">' +
     page +
@@ -255,6 +256,20 @@ function changePage(page) {
   currentPage = page;
 
   displayProducts(allProducts, productCardContainer, currentPage, rowCount);
+  updatePaginationBtnState();
+}
+
+//Add active class to All current page buttons
+function updatePaginationBtnState() {
+  let paginationButton = document.querySelectorAll(".page-item-num");
+  paginationButton.forEach((button) => {
+    let pageNumber = parseInt(button.textContent);
+    if (pageNumber === currentPage) {
+      button.classList.add("active");
+    } else {
+      button.classList.remove("active");
+    }
+  });
 }
 
 displayProducts(allProducts, productCardContainer, currentPage, rowCount);
