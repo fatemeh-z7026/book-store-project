@@ -80,7 +80,7 @@ header {
 /*Card*/
 .product-card-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   flex-wrap: wrap;
   column-gap: 1rem;
   row-gap: 3rem;

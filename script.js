@@ -230,9 +230,8 @@ function calTotalPrice(allProductsArray) {
 
 //Pagination
 
-// Modify the setupPagination function to update pagination buttons dynamically
+// update pagination buttons dynamically
 function setupPagination(allProducts, pageItemnext, rowCount) {
-
   let pageCount = Math.ceil(allProducts.length / rowCount);
 
   for (let i = 1; i < pageCount + 1; i++) {
@@ -240,17 +239,23 @@ function setupPagination(allProducts, pageItemnext, rowCount) {
   }
   console.log(pageCount);
 }
-// Modify the paginationBtnGenerator function to handle page navigation
+//handle page navigation
 function paginationBtnGenerator(page) {
   let paginationBtn =
     '<li class="page-item " onclick="changePage(' +
     page +
     ')"><a class="page-link" href="#">' +
     page +
-    '</a></li>';
+    "</a></li>";
   pageItemnext.insertAdjacentHTML("beforebegin", paginationBtn);
+}
+
+//change the current page and update the displayed products
+function changePage(page) {
+  currentPage = page;
+
+  displayProducts(allProducts, productCardContainer, currentPage, rowCount);
 }
 
 displayProducts(allProducts, productCardContainer, currentPage, rowCount);
 setupPagination(allProducts, pageItemnext, rowCount);
-// paginationBtnGenerator(page);
