@@ -305,10 +305,10 @@ function updatePaginationBtnState() {
 }
 
 //activate next button
+let pageCount = Math.ceil(allProducts.length / rowCount);
+
 nextPaginatioBtn.addEventListener("click", () => {
   currentPage++;
-  let pageCount = Math.ceil(allProducts.length / rowCount);
-
   if (currentPage > pageCount) {
     currentPage = 1; //navigate to first page
   }
@@ -319,8 +319,6 @@ nextPaginatioBtn.addEventListener("click", () => {
 //activate previous button
 previousPaginationBtn.addEventListener("click", () => {
   currentPage--;
-  let pageCount = Math.ceil(allProducts.length / rowCount);
-
   if (currentPage === 0) {
     currentPage = pageCount; //navigate to last page
   }
