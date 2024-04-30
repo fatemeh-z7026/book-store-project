@@ -89,6 +89,33 @@ let allProducts = [
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
   },
+  {
+    id: 8,
+    title: "Entanglad Life",
+    src: "assets/images/entangled life.jpg",
+    price: 20,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+  },
+  {
+    id: 9,
+    title: "Bear",
+    src: "assets/images/bear.jpg",
+    price: 35,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer..",
+  },
+  {
+    id: 10,
+    title: "Black Girl",
+    src: "assets/images/black girl.jpg",
+    price: 15,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+  },
 ];
 
 let shoppingCart = [];
@@ -260,7 +287,6 @@ function paginationBtnGenerator(page) {
 //change the current page and update the displayed products
 function changePage(page) {
   currentPage = page;
-
   displayProducts(allProducts, productCardContainer, currentPage, rowCount);
   updatePaginationBtnState();
 }
@@ -281,8 +307,10 @@ function updatePaginationBtnState() {
 //activate next button
 nextPaginatioBtn.addEventListener("click", () => {
   currentPage++;
-  if (currentPage > allProducts.length - 1) {
-    currentPage = 0; //navigate to first page
+  let pageCount = Math.ceil(allProducts.length / rowCount);
+
+  if (currentPage > pageCount) {
+    currentPage = 1; //navigate to first page
   }
   displayProducts(allProducts, productCardContainer, currentPage, rowCount);
   updatePaginationBtnState();
@@ -291,8 +319,10 @@ nextPaginatioBtn.addEventListener("click", () => {
 //activate previous button
 previousPaginationBtn.addEventListener("click", () => {
   currentPage--;
-  if (currentPage < 0) {
-    currentPage = allProducts.length - 1; //navigate to last page
+  let pageCount = Math.ceil(allProducts.length / rowCount);
+
+  if (currentPage === 0) {
+    currentPage = pageCount; //navigate to last page
   }
   displayProducts(allProducts, productCardContainer, currentPage, rowCount);
   updatePaginationBtnState();
