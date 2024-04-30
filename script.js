@@ -96,8 +96,9 @@ let $ = document;
 let productCardContainer = $.querySelector(".product-card-container");
 let shopCartContainer = $.querySelector(".basket-item");
 let totalPriceElem = $.querySelector(".total-price");
-// let paginationContainer = $.querySelector(".pagination-container");
 let pageItemnext = $.querySelector(".next-page-item");
+let previousPaginationBtn = $.getElementById("preBtn");
+let nextPaginatioBtn = $.getElementById("nxtBtn");
 let currentPage = 1;
 let rowCount = 6;
 
@@ -277,5 +278,24 @@ function updatePaginationBtnState() {
   });
 }
 
+//activate next button
+nextPaginatioBtn.addEventListener("click", () => {
+  currentPage++;
+  if (currentPage > allProducts.length - 1) {
+    currentPage = 0; //navigate to first page
+  }
+  displayProducts(allProducts, productCardContainer, currentPage, rowCount);
+  updatePaginationBtnState();
+});
+
+//activate previous button
+previousPaginationBtn.addEventListener("click", () => {
+  currentPage--;
+  if (currentPage < 0) {
+    currentPage = allProducts.length - 1; //navigate to last page
+  }
+  displayProducts(allProducts, productCardContainer, currentPage, rowCount);
+  updatePaginationBtnState();
+});
 displayProducts(allProducts, productCardContainer, currentPage, rowCount);
 setupPagination(allProducts, pageItemnext, rowCount);
