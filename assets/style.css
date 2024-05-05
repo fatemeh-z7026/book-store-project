@@ -98,9 +98,20 @@ header {
   background-color: var(--btn-color);
   color: #fff;
 }
+
 .btn-card:hover {
-  color: var(--btn-color);
+  color: var(--btn-color) !important;
   border: solid 1px var(--btn-color);
+}
+
+.btn-card a {
+  color: #fff;
+}
+.btn-card a:active {
+  color: #f2855e;
+}
+.btn-card:hover a {
+  color: #f2855e;
 }
 
 /*Image*/
