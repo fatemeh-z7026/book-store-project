@@ -219,7 +219,9 @@ function removeProduct(productId) {
       //Returns all products that do not have the same ID as the selected product
       product.id !== productId
   );
-
+  allProducts.forEach((product) => {
+    product.count = 1;
+  });
   //Update the UI
   cartProductGenerator(shoppingCart);
   calTotalPrice(shoppingCart);
@@ -230,6 +232,9 @@ function removeProduct(productId) {
 
 function removeAllProducts() {
   shoppingCart = [];
+  allProducts.forEach((product) => {
+    product.count = 1;
+  });
   cartProductGenerator(shoppingCart);
   totalPriceElem.innerHTML = "Total Price";
 }
@@ -241,6 +246,7 @@ function productCount(productId) {
     selectedPro.count++; // Increment the count of the product
     cartProductGenerator(shoppingCart); // Update the UI
   }
+  calTotalPrice(shoppingCart);
 }
 
 //Calculate total price
