@@ -142,7 +142,6 @@ function displayProducts(
   let startIndex = endIndex - rowCount;
 
   let paginatedProduct = allProducts.slice(startIndex, endIndex);
-  console.log(paginatedProduct);
   paginatedProduct.forEach(function (product) {
     productCardContainer.insertAdjacentHTML(
       "beforeend",
@@ -156,7 +155,9 @@ function displayProducts(
         product.description +
         '</p><button class="btn btn-card" onclick="addProductToCart(' +
         product.id +
-        ')" type="submit">add to cart</button> <button class="btn btn-card"  type="submit"><a href="product-details.html?id=' + product.id + '" >See More ...</a></button></div></div></div></div>'
+        ')" type="submit">add to cart</button> <button class="btn btn-card"  type="submit"><a href="product-details.html?id=' +
+        product.id +
+        '" >See More ...</a></button></div></div></div></div>'
     );
   });
 }
@@ -257,7 +258,6 @@ function calTotalPrice(allProductsArray) {
   allProductsArray.forEach(
     (product) => (totalPrice += product.price * product.count)
   );
-  console.log(totalPrice);
 
   totalPriceElem.innerHTML = "Total Price: " + " " + totalPrice;
 }
@@ -271,7 +271,6 @@ function setupPagination(allProducts, pageItemnext, rowCount) {
   for (let i = 1; i < pageCount + 1; i++) {
     paginationBtnGenerator(i);
   }
-  console.log(pageCount);
 }
 //handle page navigation
 
@@ -333,3 +332,5 @@ previousPaginationBtn.addEventListener("click", () => {
 });
 displayProducts(allProducts, productCardContainer, currentPage, rowCount);
 setupPagination(allProducts, pageItemnext, rowCount);
+
+;
