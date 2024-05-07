@@ -141,3 +141,7 @@ if (productDetailedPart) {
 } else {
   location.href = "http://127.0.0.1:5500/";
 }
+
+backBtn.addEventListener("click", () => {
+  history.back();
+});
