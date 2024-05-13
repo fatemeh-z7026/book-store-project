@@ -1,4 +1,5 @@
 let $ = document;
+let detailsContainer = $.querySelector(".details");
 let backBtn = $.querySelector("#back");
 let proTitle = $.querySelector("h1");
 let proDesc = $.querySelector("p");
@@ -124,6 +125,20 @@ let allProducts = [
   },
 ];
 
+//Generate product details part
+function proDetailGenerat() {
+  detailsContainer.insertAdjacentHTML(
+    "beforeend",
+    '<div class="card mb-3 card-detailed"><div class="row g-0"><div class="col-md-4"><img src="' +
+      productDetailedPart.src +
+      '" class="img-fluid rounded-start" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">' +
+      productDetailedPart.title +
+      '</h5><p class="card-text">' +
+      productDetailedPart.description +
+      '</p><p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago<small></p></div></div></div></div>'
+  );
+}
+
 //Save all location params in variable
 let locationSearchParam = new URLSearchParams(location.search);
 
@@ -135,9 +150,7 @@ let productDetailedPart = allProducts.find(
   (product) => product.id === Number(productIdParams)
 );
 if (productDetailedPart) {
-  proTitle.innerHTML = productDetailedPart.title;
-  proDesc.innerHTML = productDetailedPart.description;
-  proImage.setAttribute("src", productDetailedPart.src);
+  proDetailGenerat();
 } else {
   location.href = "http://127.0.0.1:5500/";
 }

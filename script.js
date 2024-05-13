@@ -332,5 +332,5 @@ previousPaginationBtn.addEventListener("click", () => {
 });
 displayProducts(allProducts, productCardContainer, currentPage, rowCount);
 setupPagination(allProducts, pageItemnext, rowCount);
-
+ 
 ;
