@@ -3,11 +3,18 @@
 
 // Include any default variable overrides here (though functions won't be available)
 
-$modal-content-bg:#194769;
+$modal-content-bg:#006769;
 $modal-content-color:#FFF;
-$modal-header-border-color:#194769;
+$modal-header-border-color:#006769;
 $modal-header-border-width:  none;
+$pagination-color:#006769;
+$pagination-hover-color:#40A578;
+$pagination-active-bg:#40A578;
+$pagination-active-border-color:#40A578;
 $pagination-focus-box-shadow:none;
+$input-border-color:none;
+$input-focus-border-color:none;
+$input-focus-box-shadow:0 0 0 0.20rem #40A578;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 

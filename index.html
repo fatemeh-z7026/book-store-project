@@ -15,7 +15,7 @@
           <img
             class="navbar-brand-img"
             src="/assets/images/book-icon-138.png"
-            alt="Bootstrap"
+            alt="brand"
           />
 
           <button
@@ -41,15 +41,17 @@
                 <a class="nav-link" href="#">About Us</a>
               </li>
             </ul>
+            
             <form class="d-flex" role="search">
               <input
-                class="form-control me-2"
+                class="form-control me-2 search-input"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
               <button class="btn btn-search" type="submit">Search</button>
             </form>
+       
           </div>
         </div>
       </nav>
@@ -62,8 +64,8 @@
 
         <div class="shop-cart-container">
           <div class="basket-item">
-            <p class="basket-message" >No Item!</p>
           </div>
+          <p class="empty-message" >No Item!</p>
           <div class="total-price">Total Price</div>
           <button class="btn btn-card btn-remove-all m-3" onclick="removeAllProducts()">Delete All</button>
         </div>
@@ -79,6 +81,7 @@
     
     </section>
     <script src="/script.js"></script>
+    
     <script src="node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
     <script
       src="https://kit.fontawesome.com/91bf81b0d2.js"
