@@ -1,11 +1,9 @@
-let $ = document;
-let detailsContainer = $.querySelector(".details");
-let backBtn = $.querySelector("#back");
-let proTitle = $.querySelector("h1");
-let proDesc = $.querySelector("p");
-let proImage = $.querySelector("img");
+let detailsContainer = document.querySelector(".details");
+let backBtn = document.querySelector("#back");
+let proTitle = document.querySelector("h1");
+let proDesc = document.querySelector("p");
+let proImage = document.querySelector("img");
 let allProducts = [
- 
   {
     id: 1,
     title: "London",
@@ -126,7 +124,7 @@ let allProducts = [
 ];
 
 //Generate product details part
-function proDetailGenerat() {
+function productDetailGenerator() {
   detailsContainer.insertAdjacentHTML(
     "beforeend",
     '<div class="card mb-3 card-detailed"><div class="row g-0"><div class="col-md-4"><img src="' +
@@ -146,14 +144,13 @@ let locationSearchParam = new URLSearchParams(location.search);
 let productIdParams = locationSearchParam.get("id");
 
 //Search  Product id in allProducts and return product that have same id with "productIdParam"
+
 let productDetailedPart = allProducts.find(
   (product) => product.id === Number(productIdParams)
 );
 if (productDetailedPart) {
-  proDetailGenerat();
-} else {
-  location.href = "http://127.0.0.1:5500/";
-}
+  productDetailGenerator();
+} else alert("Product not found.");
 
 backBtn.addEventListener("click", () => {
   history.back();

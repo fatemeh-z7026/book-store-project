@@ -1,3 +1,16 @@
+let $ = document;
+let shoppingCart = [];
+let productCardContainer = $.querySelector(".product-card-container");
+let shopCartContainer = $.querySelector(".basket-item");
+let totalPriceElem = $.querySelector(".total-price");
+let cartEmptyMess = $.querySelector(".empty-message");
+let pageItemnext = $.querySelector(".next-page-item");
+let previousPaginationBtn = $.getElementById("preBtn");
+let nextPaginatioBtn = $.getElementById("nxtBtn");
+let searchInput = $.querySelector(".search-input");
+let searchBtn = $.getElementById("search-btn");
+let currentPage = 1;
+let rowCount = 6;
 let allProducts = [
   {
     id: 1,
@@ -117,18 +130,6 @@ let allProducts = [
       "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
   },
 ];
-
-let shoppingCart = [];
-let $ = document;
-let productCardContainer = $.querySelector(".product-card-container");
-let shopCartContainer = $.querySelector(".basket-item");
-let totalPriceElem = $.querySelector(".total-price");
-let cartEmptyMess = $.querySelector(".empty-message");
-let pageItemnext = $.querySelector(".next-page-item");
-let previousPaginationBtn = $.getElementById("preBtn");
-let nextPaginatioBtn = $.getElementById("nxtBtn");
-let currentPage = 1;
-let rowCount = 6;
 
 //Generate Products List
 function displayProducts(
@@ -334,3 +335,31 @@ previousPaginationBtn.addEventListener("click", () => {
 });
 displayProducts(allProducts, productCardContainer, currentPage, rowCount);
 setupPagination(allProducts, pageItemnext, rowCount);
+
+//Handle Product Search
+searchBtn.addEventListener("click", (event) => {
+  event.preventDefault(); // Prevents the form from submitting in the traditional way
+
+  handleProductSearch();
+});
+
+function handleProductSearch() {
+  let searchTerm = searchInput.value.trim().toLowerCase(); //trim() remove unnecessary spaces
+  if (!searchTerm) {
+    alert("Please enter a product name.");
+    return;
+  }
+
+  let productDetailedPart = allProducts.find(
+    (product) => product.title.toLowerCase() === searchTerm.toLowerCase()
+  );
+
+  if (productDetailedPart) {
+    // Navigate to the product details page with the product ID in the query string
+    //${productDetailedPart.id} passing product id to product-details.html page.
+    location.href = `product-details.html?id=${productDetailedPart.id}`;
+    searchInput.value = "";
+  } else {
+    alert("Product not found.");
+  }
+}
