@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Shop</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="/assets//style.css" />
+    <link rel="stylesheet" href="/assets/about-us.css" />
   </head>
   <body>
     <header>
@@ -37,11 +38,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Shop</a>
               </li>
-              <li class="nav-item about-us">
-                <a class="nav-link" href="/about-us.html">About Us</a>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
               </li>
             </ul>
-            
+
             <form class="d-flex" role="search">
               <input
                 class="form-control me-2 search-input"
@@ -49,43 +50,33 @@
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button id="search-btn" class="btn btn-search"><a  >Search</a></button>
+              <button id="search-btn" class="btn btn-search">
+                <a>Search</a>
+              </button>
             </form>
-       
           </div>
         </div>
       </nav>
     </header>
-
-    <section>
-      <div class="wrapper">
-        <div class="product-card-container row-cols-1 row-cols-md-3 g-4">
-        </div>
-
-        <div class="shop-cart-container">
-          <div class="basket-item">
-          </div>
-          <p class="empty-message" >No Item!</p>
-          <div class="total-price">Total Price</div>
-          <button class="btn btn-card btn-remove-all m-3" onclick="removeAllProducts()">Delete All</button>
-        </div>
-
-      <div class="pagination-container">
-        <nav aria-label="Page navigation example">
-          <ul class="pagination pagination-lg d-flex justify-content-center ">
-            <li id="preBtn" class="page-item pre-page-item"><a class="page-link " href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span></a></li>
-              <li id="nxtBtn" class="page-item next-page-item" ><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li></ul></nav>
-              
+    <div class="about-container m-5">
+      <p class="about-us-paragraph">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum, totam
+          aperiam aspernatur culpa quos provident omnis magni, ex, perspiciatis
+          animi iusto optio ipsa! Dolorum ab, officia rerum nesciunt voluptatum
+          sunt! Sit mollitia quisquam dicta, nobis, deleniti ipsa ratione ex
+          provident tempore veniam architecto dolorum nesciunt neque optio maxime
+          soluta officiis quod fugiat perferendis obcaecati non. Minima quod illum
+          modi sequi placeat architecto in magnam quas laborum possimus. Vitae
+          voluptate eum asperiores, voluptatem, inventore deleniti ducimus ipsum
+          praesentium aut eius unde harum ipsa at tenetur doloremque! Vero quo ipsa
+          ea maiores omnis? Laborum nesciunt nostrum velit enim non odio minima.
+          Odio architecto consequatur cum consequuntur sapiente in, ducimus iste vel
+          facilis? Adipisci voluptates rem nulla id amet cupiditate autem eos, hic,
+          neque vel tempora? Velit ipsam voluptate fugiat iste quos, molestias porro
+          eum laboriosam enim iusto assumenda corrupti odio! Itaque perferendis
+          similique incidunt pariatur tempore ad quidem quia officiis provident
+          rerum.
+      </p>
     </div>
-    
-    </section>
-    <script src="/script.js"></script>
-    <script  src="node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
-    <script
-      src="https://kit.fontawesome.com/91bf81b0d2.js"
-      crossorigin="anonymous"
-    ></script>
-
   </body>
 </html>

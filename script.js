@@ -9,6 +9,7 @@ let previousPaginationBtn = $.getElementById("preBtn");
 let nextPaginatioBtn = $.getElementById("nxtBtn");
 let searchInput = $.querySelector(".search-input");
 let searchBtn = $.getElementById("search-btn");
+let aboutUs = $.querySelector(".about-us");
 let currentPage = 1;
 let rowCount = 6;
 let allProducts = [
@@ -363,3 +364,4 @@ function handleProductSearch() {
     alert("Product not found.");
   }
 }
+
