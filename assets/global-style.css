@@ -1,0 +1,81 @@
+:root {
+  --color-body: #f1f1f1;
+  --border-color: #9dde8b;
+  --btn-color: #f2855e;
+  --navbar: #006769;
+}
+html {
+  /*62.5% of 16px =10px*/
+  font-size: 62.5%;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+li::selection {
+  background-color: inherit;
+}
+span::selection {
+  background-color: inherit;
+}
+
+/*Typography*/
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  background-color: var(--color-body);
+}
+
+/*Links*/
+a {
+  text-decoration: none !important;
+}
+h1,
+h2,
+h3 {
+  padding: 3rem 0;
+  margin-bottom: 0 !important;
+  line-height: 1.1;
+  text-transform: capitalize;
+}
+
+h1 {
+  /*1 * font size of the html element*/
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+p {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+}

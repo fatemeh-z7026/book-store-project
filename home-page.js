@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let carouselImg = document.createElement("img");
       carouselImg.setAttribute("src", image.src);
       carouselImg.classList.add("d-block", "w-100");
+      carouselImg.style.borderRadius = "10px";
 
       carouselItem.append(carouselImg);
       carouselInner.append(carouselItem);

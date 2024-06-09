@@ -1,10 +1,7 @@
 .home-container {
-  margin: 0 3rem;
+  margin: 0 4rem;
 }
 .home-page-header {
-  font-size: 4rem;
-  font-weight: 800;
-  padding: 2rem;
   text-align: center;
 }
 .carousel-control-prev {
