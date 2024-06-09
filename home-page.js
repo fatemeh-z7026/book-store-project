@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   let $ = document;
   let carouselInner = $.querySelector(".carousel-inner");
-  let currentIndex = 0;
   let sliderImages = [
     {
       id: 1,
@@ -33,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sliderImages.forEach((image, index) => {
       let carouselItem = document.createElement("div");
       carouselItem.classList.add("carousel-item");
+
       // Make the first item active
       if (index === 0) {
         carouselItem.classList.add("active");
@@ -48,4 +48,3 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   generateCarousleItem();
 });
-
