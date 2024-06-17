@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  //Carousel
   let $ = document;
   let carouselInner = $.querySelector(".carousel-inner");
   let sliderImages = [
@@ -64,17 +65,14 @@ document.addEventListener("DOMContentLoaded", function () {
     { id: 7, title: "Self-help", src: "assets/images/selfhelp-cat.svg" },
     { id: 8, title: "Cooking", src: "assets/images/cooking-cat.svg" },
   ];
+  // let swiperSliderElem = document.querySelector(".swiper-slider");
 
   function categoriesGeneration() {
-    let swiperSliderElem = document.querySelector(".swiper-slider");
-
     categorySwiperList.forEach((category) => {
       //swiper item
       let swiperItem = document.createElement("div");
       swiperItem.classList.add("swiper-item");
       //swiper container
-      let swiperContainerElem = document.createElement("div");
-      swiperContainerElem.classList.add("swiper-container");
 
       let swiperImg = document.createElement("img");
       swiperImg.classList.add("swiper-icon");
@@ -84,10 +82,43 @@ document.addEventListener("DOMContentLoaded", function () {
       swiperTitle.classList.add("swiper-title");
       swiperTitle.innerHTML = category.title;
 
-      swiperContainerElem.append(swiperImg, swiperTitle);
-      swiperItem.append(swiperContainerElem);
+      swiperItem.append(swiperImg, swiperTitle);
       swiperSliderElem.append(swiperItem);
     });
   }
+
   categoriesGeneration();
 });
+
+//Horizantal Scrolling(Swiper)
+let swiperSliderElem = document.querySelector(".swiper-slider");
+let isDown = false;
+let startX;
+let scrollLeft;
+
+swiperSliderElem.addEventListener("mousedown", (event) => {
+  isDown = true;
+  event.preventDefault();
+  startX = event.pageX - swiperSliderElem.offsetLeft;
+  scrollLeft = swiperSliderElem.scrollLeft;//
+  swiperSliderElem.style.cursor = "grabbing"; // Change cursor style
+});
+
+function handleMouseUp() {
+  if (isDown) {
+    isDown = false;
+    swiperSliderElem.style.cursor = "grab"; // Change cursor style
+  }
+}
+
+function handleMouseMove(event) {
+  if (isDown) {
+    event.preventDefault();
+    let x = event.pageX - swiperSliderElem.offsetLeft; //Calculates the current horizontal position of the mouse
+    let walk = (x - startX) * 2;  // Calculate how much to scroll
+    swiperSliderElem.scrollLeft = scrollLeft - walk; // Calculates the distance the mouse has moved horizontally since mousedown
+  }
+}
+swiperSliderElem.addEventListener("mouseleave", handleMouseUp);
+swiperSliderElem.addEventListener("mouseup", handleMouseUp);
+swiperSliderElem.addEventListener("mousemove", handleMouseMove);
