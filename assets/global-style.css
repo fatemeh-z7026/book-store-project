@@ -36,9 +36,13 @@ a {
 }
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
   padding: 3rem 0;
   margin-bottom: 0 !important;
+  margin-top: 2rem;
   line-height: 1.1;
   text-transform: capitalize;
 }

@@ -38,6 +38,7 @@
   max-width: 160px;
   box-shadow: #9dde8b77 0px 2px 5px 0px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .swiper-icon {
@@ -52,4 +53,25 @@
   font-size: 1.2rem;
   font-weight: 500;
   margin: 0;
+}
+
+/*Best Seller Card*/
+.best-seller-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.best-sell-card-img {
+  height: auto;
+  max-height: 250px;
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-bottom: 0;
+}
+
+.best-sell-card-title, .best-sell-card-price {
+  padding: 1.75rem 0  1.5rem;
 }

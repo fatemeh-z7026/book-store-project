@@ -148,9 +148,9 @@ function displayProducts(
   paginatedProduct.forEach(function (product) {
     productCardContainer.insertAdjacentHTML(
       "beforeend",
-      '<div class="card mb-3"><div class="row g-0"><div class="col-md-4"><img src="' +
+      '<div class="card product-card mb-3"><div class="row g-0"><div class="col-md-4"><img src="' +
         product.src +
-        '" class="img-fluid rounded-start card-img" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">' +
+        '" class="img-fluid rounded-start card-img product-card-img" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">' +
         product.title +
         '</h5><h6 class="card-subtitle mb-3 mt-3 text-body-secondary">' +
         product.price +

@@ -50,7 +50,7 @@ header {
   row-gap: 3rem;
   margin-bottom: 3rem;
 }
-.card {
+.product-card {
   /* height: fit-content; */
   background-color: #eeeeee;
   width: 100%;
@@ -58,6 +58,11 @@ header {
   font-size: 1rem;
   /* border: solid 1px var(--border-color); */
 }
+.product-card-img {
+  height: 100%;
+}
+
+
 /*button*/
 .btn {
   background-color: var(--btn-color);
@@ -83,10 +88,7 @@ header {
   border: solid 1px var(--btn-color);
 }
 
-/*Image*/
-.card-img {
-  height: 100%;
-}
+
 
 /*Icon*/
 i {

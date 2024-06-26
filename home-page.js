@@ -1,6 +1,7 @@
+let $ = document;
+
 document.addEventListener("DOMContentLoaded", function () {
   //Carousel
-  let $ = document;
   let carouselInner = $.querySelector(".carousel-inner");
   let sliderImages = [
     {
@@ -100,7 +101,7 @@ swiperSliderElem.addEventListener("mousedown", (event) => {
   isDown = true;
   event.preventDefault();
   startX = event.pageX - swiperSliderElem.offsetLeft;
-  scrollLeft = swiperSliderElem.scrollLeft;//
+  scrollLeft = swiperSliderElem.scrollLeft; //
   swiperSliderElem.style.cursor = "grabbing"; // Change cursor style
 });
 
@@ -115,10 +116,63 @@ function handleMouseMove(event) {
   if (isDown) {
     event.preventDefault();
     let x = event.pageX - swiperSliderElem.offsetLeft; //Calculates the current horizontal position of the mouse
-    let walk = (x - startX) * 2;  // Calculate how much to scroll
+    let walk = (x - startX) * 2; // Calculate how much to scroll
     swiperSliderElem.scrollLeft = scrollLeft - walk; // Calculates the distance the mouse has moved horizontally since mousedown
   }
 }
 swiperSliderElem.addEventListener("mouseleave", handleMouseUp);
 swiperSliderElem.addEventListener("mouseup", handleMouseUp);
 swiperSliderElem.addEventListener("mousemove", handleMouseMove);
+
+//Best Seller Card
+let bestSellerBook = [
+  {
+    id: 1,
+    title: "Dark Window",
+    src: "assets/images/dark window.jpg",
+    price: 20,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+  },
+  {
+    id: 2,
+    title: "Lost Bookshop",
+    src: "assets/images/lost bookshop.jpg",
+    price: 35,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer..",
+  },
+  {
+    id: 3,
+    title: "Happy Girl",
+    src: "assets/images/a good happy girl.jpg",
+    price: 5,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+  },
+  {
+    id: 4,
+    title: "Black Girl",
+    src: "assets/images/black girl.jpg",
+    price: 15,
+    count: 1,
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+  },
+];
+let bestSellCardContainer = $.querySelector(".best-sell-card-container");
+
+bestSellerBook.forEach((book) => {
+  let content =
+    ' <div class="col"><div class="card"><img src="' +
+    book.src +
+    '" class="card-img-top best-sell-card-img" alt="..."/><div class="card-body best-sell-card-body"><h4 class="card-title best-sell-card-title">' +
+    book.title +
+    '</h4><p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small><h4 class="best-sell-card-price">' +
+    book.price +
+    '$</h4><a href="#" class="btn btn-card">Go somewhere</a></p></div></div></div>';
+  bestSellCardContainer.insertAdjacentHTML("beforeend", content);
+});
