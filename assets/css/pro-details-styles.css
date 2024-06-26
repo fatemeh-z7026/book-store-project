@@ -1,17 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
 .details {
   display: flex;
   margin-top: 5rem;
   justify-content: space-evenly;
-  width: 100vw;
+  /* width: 100vw; */
 }
-
-
 
 .navbar {
   width: 100%;
@@ -20,12 +12,12 @@
 }
 
 .navbar button {
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
   font-size: 20px;
   background: none;
-  background-color:  #f2855e;
+  background-color: #f2855e;
   border: none;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   color: #fff;
 }
 

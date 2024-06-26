@@ -6,27 +6,27 @@ document.addEventListener("DOMContentLoaded", function () {
   let sliderImages = [
     {
       id: 1,
-      src: "assets/images/carouisel-1.png",
+      src: "/assets/images/carouisel-1.png",
     },
     {
       id: 2,
-      src: "assets/images/carouisel-2.png",
+      src: "/assets/images/carouisel-2.png",
     },
     {
       id: 3,
-      src: "assets/images/carouisel-3.png",
+      src: "/assets/images/carouisel-3.png",
     },
     {
       id: 4,
-      src: "assets/images/carouisel-4.png",
+      src: "/assets/images/carouisel-4.png",
     },
     {
       id: 5,
-      src: "assets/images/carouisel-5.png",
+      src: "/assets/images/carouisel-5.png",
     },
     {
       id: 6,
-      src: "assets/images/carouisel-6.png",
+      src: "/assets/images/carouisel-6.png",
     },
   ];
 
@@ -53,18 +53,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Swiper Slider(Category)
   let categorySwiperList = [
-    { id: 1, title: "Children's Books", src: "assets/images/children-cat.svg" },
-    { id: 2, title: "Young Adult", src: "assets/images/young-adult-cat.svg" },
+    { id: 1, title: "Children's Books", src: "/assets/images/children-cat.svg" },
+    { id: 2, title: "Young Adult", src: "/assets/images/young-adult-cat.svg" },
     {
       id: 3,
       title: "Autobiographies",
-      src: "assets/images/autobiographic-cat.svg",
+      src: "/assets/images/autobiographic-cat.svg",
     },
-    { id: 4, title: "Business", src: "assets/images/business-cat.svg" },
-    { id: 5, title: "Fiction", src: "assets/images/fiction-cat.svg" },
-    { id: 6, title: "Comics", src: "assets/images/comics-cat.svg" },
-    { id: 7, title: "Self-help", src: "assets/images/selfhelp-cat.svg" },
-    { id: 8, title: "Cooking", src: "assets/images/cooking-cat.svg" },
+    { id: 4, title: "Business", src: "/assets/images/business-cat.svg" },
+    { id: 5, title: "Fiction", src: "/assets/images/fiction-cat.svg" },
+    { id: 6, title: "Comics", src: "/assets/images/comics-cat.svg" },
+    { id: 7, title: "Self-help", src: "/assets/images/selfhelp-cat.svg" },
+    { id: 8, title: "Cooking", src: "/assets/images/cooking-cat.svg" },
   ];
   // let swiperSliderElem = document.querySelector(".swiper-slider");
 
@@ -129,7 +129,7 @@ let bestSellerBook = [
   {
     id: 1,
     title: "Dark Window",
-    src: "assets/images/dark window.jpg",
+    src: "/assets/images/dark window.jpg",
     price: 20,
     count: 1,
     description:
@@ -138,7 +138,7 @@ let bestSellerBook = [
   {
     id: 2,
     title: "Lost Bookshop",
-    src: "assets/images/lost bookshop.jpg",
+    src: "/assets/images/lost bookshop.jpg",
     price: 35,
     count: 1,
     description:
@@ -147,7 +147,7 @@ let bestSellerBook = [
   {
     id: 3,
     title: "Happy Girl",
-    src: "assets/images/a good happy girl.jpg",
+    src: "/assets/images/a good happy girl.jpg",
     price: 5,
     count: 1,
     description:
@@ -156,7 +156,7 @@ let bestSellerBook = [
   {
     id: 4,
     title: "Black Girl",
-    src: "assets/images/black girl.jpg",
+    src: "/assets/images/black girl.jpg",
     price: 15,
     count: 1,
     description:

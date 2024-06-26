@@ -158,7 +158,7 @@ function displayProducts(
         product.description +
         '</p><button class="btn btn-card" onclick="addProductToCart(' +
         product.id +
-        ')" type="submit">add to cart</button> <button class="btn btn-card"  type="submit"><a href="product-details.html?id=' +
+        ')" type="submit">add to cart</button> <button class="btn btn-card"  type="submit"><a href="components/product-details.html?id=' +
         product.id +
         '" >See More ...</a></button></div></div></div></div>'
     );
@@ -364,4 +364,3 @@ function handleProductSearch() {
     alert("Product not found.");
   }
 }
-
