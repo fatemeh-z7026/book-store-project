@@ -1,6 +1,5 @@
 .home-container {
   margin: 0 4rem;
-  height: 100vh;
 }
 .home-page-header {
   text-align: center;
@@ -72,6 +71,12 @@
   padding-bottom: 0;
 }
 
-.best-sell-card-title, .best-sell-card-price {
-  padding: 1.75rem 0  1.5rem;
+.best-sell-card-title,
+.best-sell-card-price {
+  padding: 1.75rem 0 1.5rem;
+}
+
+.category-title,
+.Bestsellers-title {
+  margin: 4rem 0 2rem;
 }

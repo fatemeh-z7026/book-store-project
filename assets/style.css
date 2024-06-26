@@ -21,12 +21,12 @@ header {
 }
 .nav-item {
   padding: 0.5rem 2rem;
-  font-weight: 500;
+  font-weight: 400;
   transition: transform 1s;
 }
 
 .nav-item:hover {
-  transform: scale(1.1);
+  font-weight: 500;
 }
 
 .navbar-brand-img {
@@ -34,6 +34,7 @@ header {
   max-width: 50px;
   padding-top: 1rem;
 }
+
 /*wrapper*/
 .wrapper {
   display: grid;
@@ -62,7 +63,6 @@ header {
   height: 100%;
 }
 
-
 /*button*/
 .btn {
   background-color: var(--btn-color);
@@ -88,10 +88,8 @@ header {
   border: solid 1px var(--btn-color);
 }
 
-
-
 /*Icon*/
-i {
+.shop-cart-item i {
   color: #ff0000;
   cursor: pointer;
 }

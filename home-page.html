@@ -2,14 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>Document</title>
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/global-style.css" />
     <link rel="stylesheet" href="assets/home-page.css" />
+    <link rel="stylesheet" href="/assets/footer.css" />
+    <link rel="stylesheet" href="/assets/font-awesome/css/all.min.css" />
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-dark navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"></a>
           <img
@@ -90,12 +93,12 @@
         </button>
       </div>
       <!--Top Category -->
-      <h3>top category</h3>
+      <h3 class="category-title">top category</h3>
       <div class="swiper-slider"></div>
 
       <!--Best Seller -->
       <div class="best-seller-caption">
-        <h3>Bestsellers</h3>
+        <h3 class="Bestsellers-title">Bestsellers</h3>
         <a href="#">View All</a>
       </div>
       <div
@@ -104,12 +107,41 @@
 
       <br />
     </div>
-
+    <footer class="footer">
+      <ul class="social-icon">
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <i class="fa-brands fa-square-twitter"></i>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <i class="fa-brands fa-square-facebook"></i>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <i class="fa-brands fa-square-instagram"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+        <li class="menu__item">
+          <a class="menu__link" href="#">Privacy Policy</a>
+        </li>
+        <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+      </ul>
+      <p>&copy;Book Store | All Rights Reserved</p>
+    </footer>
     <script src="/home-page.js"></script>
     <script src="node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
-    <script
-      src="https://kit.fontawesome.com/91bf81b0d2.js"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
