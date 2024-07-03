@@ -144,25 +144,30 @@ function displayProducts(
   let endIndex = currentPage * rowCount;
   let startIndex = endIndex - rowCount;
 
-  let paginatedProduct = allProducts.slice(startIndex, endIndex);
-  paginatedProduct.forEach(function (product) {
-    productCardContainer.insertAdjacentHTML(
-      "beforeend",
-      '<div class="card product-card mb-3"><div class="row g-0"><div class="col-md-4"><img src="' +
-        product.src +
-        '" class="img-fluid rounded-start card-img product-card-img" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">' +
-        product.title +
-        '</h5><h6 class="card-subtitle mb-3 mt-3 text-body-secondary">' +
-        product.price +
-        '$</h6><p class="card-text">' +
-        product.description +
-        '</p><button class="btn btn-card" onclick="addProductToCart(' +
-        product.id +
-        ')" type="submit">add to cart</button> <button class="btn btn-card"  type="submit"><a href="components/product-details.html?id=' +
-        product.id +
-        '" >See More ...</a></button></div></div></div></div>'
-    );
-  });
+  fetch("https://openlibrary.org/subjects/fiction.json?limit=15")
+    .then((res) => res.json())
+    .then((data) => {
+      let bookData = data.works;
+      let paginatedProduct = bookData.slice(startIndex, endIndex);
+
+      paginatedProduct.forEach(function (product) {
+        const title = product.title;
+        const description = product.description || "No description available";
+        const price = "20.00"; // Example price
+        const src = product.cover_id
+          ? `https://covers.openlibrary.org/b/id/${product.cover_id}-L.jpg`
+          : "path/to/default-cover.jpg";
+
+        productCardContainer.insertAdjacentHTML(
+          "beforeend",
+          `<div class="card product-card mb-3"><div class="row g-0"><div class="col-md-4"><img src="${src}" class="img-fluid rounded-start card-img product-card-img" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">${title}</h5><h6 class="card-subtitle mb-3 mt-3 text-body-secondary">${price}$</h6><p class="card-text">${description}</p><button class="btn btn-card" onclick="addProductToCart(' +
+            product.id +
+            ')" type="submit">add to cart</button> <button class="btn btn-card"  type="submit"><a href="components/product-details.html?id=' +
+            product.id +
+            '" >See More ...</a></button></div></div></div></div>`
+        );
+      });
+    });
 }
 
 //Create Modal
@@ -358,7 +363,7 @@ function handleProductSearch() {
   if (productDetailedPart) {
     // Navigate to the product details page with the product ID in the query string
     //${productDetailedPart.id} passing product id to product-details.html page.
-    location.href = `product-details.html?id=${productDetailedPart.id}`;
+    location.href = `components/product-details.html?id=${productDetailedPart.id}`;
     searchInput.value = "";
   } else {
     alert("Product not found.");
