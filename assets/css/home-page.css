@@ -28,9 +28,7 @@
 }
 
 .swiper-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+ 
   padding: 0.5rem;
   text-align: center;
   width: 100%;
@@ -39,6 +37,13 @@
   box-shadow: #9dde8b77 0px 2px 5px 0px;
   border-radius: 5px;
   cursor: pointer;
+}
+.swiper-link{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #000;
+  font-weight: 300;
 }
 
 .swiper-icon {

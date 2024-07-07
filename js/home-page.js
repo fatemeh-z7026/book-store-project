@@ -97,9 +97,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // let swiperSliderElem = document.querySelector(".swiper-slider");
   function categoriesGeneration() {
     categorySwiperList.forEach((category) => {
+      
       //swiper item
       let swiperItem = document.createElement("div");
       swiperItem.classList.add("swiper-item");
+
+      //swiper Link 
+
+      let swiperLink = document.createElement("a");
+      swiperLink.href = "#";
+      swiperLink.classList.add("swiper-link");
       //swiper container
 
       let swiperImg = document.createElement("img");
@@ -110,7 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
       swiperTitle.classList.add("swiper-title");
       swiperTitle.innerHTML = category.title;
 
-      swiperItem.append(swiperImg, swiperTitle);
+      swiperLink.append(swiperImg, swiperTitle);
+      swiperItem.appendChild(swiperLink)
       swiperSliderElem.append(swiperItem);
     });
   }

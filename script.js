@@ -147,7 +147,6 @@ function productCount(productKey) {
 
 function calTotalPrice(allBooksArray) {
   let totalPrice = 0;
-
   allBooksArray.forEach((product) => {
     totalPrice += product.edition_count * product.count;
     console.log(product.count);
