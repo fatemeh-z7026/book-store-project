@@ -125,6 +125,9 @@ swiperSliderElem.addEventListener("mouseup", handleMouseUp);
 swiperSliderElem.addEventListener("mousemove", handleMouseMove);
 
 //Best Seller Card
+
+
+
 let bestSellerBook = [
   {
     id: 1,
@@ -167,7 +170,7 @@ let bestSellCardContainer = $.querySelector(".best-sell-card-container");
 
 bestSellerBook.forEach((book) => {
   let content =
-    ' <div class="col"><div class="card"><img src="' +
+    ' <div class="col"><div class="card best-seller-card"><img src="' +
     book.src +
     '" class="card-img-top best-sell-card-img" alt="..."/><div class="card-body best-sell-card-body"><h4 class="card-title best-sell-card-title">' +
     book.title +
