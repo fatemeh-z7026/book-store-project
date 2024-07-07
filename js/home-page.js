@@ -173,6 +173,6 @@ bestSellerBook.forEach((book) => {
     book.title +
     '</h4><p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small><h4 class="best-sell-card-price">' +
     book.price +
-    '$</h4><a href="#" class="btn btn-card">Go somewhere</a></p></div></div></div>';
+    '$</h4><a href="#" class="btn btn-card btn-best-sell">Add To Cart</a></p></div></div></div>';
   bestSellCardContainer.insertAdjacentHTML("beforeend", content);
 });
