@@ -1,5 +1,6 @@
 let $ = document;
 let shoppingCart = [];
+let allBooks = [];
 let productCardContainer = $.querySelector(".product-card-container");
 let shopCartContainer = $.querySelector(".basket-item");
 let totalPriceElem = $.querySelector(".total-price");
@@ -12,129 +13,24 @@ let searchBtn = $.getElementById("search-btn");
 let aboutUs = $.querySelector(".about-us");
 let currentPage = 1;
 let rowCount = 6;
-let allProducts = [
-  {
-    id: 1,
-    title: "London",
-    src: "assets/images/london.jpg",
-    price: 30,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-  },
-  {
-    id: 2,
-    title: "Rouge",
-    src: "assets/images/rouge.jpg",
-    price: 20,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-  },
-  {
-    id: 3,
-    title: "Chaos",
-    src: "assets/images/chaos.jpg",
-    price: 35,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer..",
-  },
-  {
-    id: 4,
-    title: "Secret Book",
-    src: "assets/images/secret book.jpg",
-    price: 15,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-  },
-  {
-    id: 5,
-    title: "Dark Window",
-    src: "assets/images/dark window.jpg",
-    price: 20,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-  },
-  {
-    id: 6,
-    title: "Lost Bookshop",
-    src: "assets/images/lost bookshop.jpg",
-    price: 35,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer..",
-  },
-  {
-    id: 7,
-    title: "Happy Girl",
-    src: "assets/images/a good happy girl.jpg",
-    price: 5,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-  },
-  {
-    id: 8,
-    title: "Black Girl",
-    src: "assets/images/black girl.jpg",
-    price: 15,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-  },
-  {
-    id: 9,
-    title: "Jumps In",
-    src: "assets/images/jumps injpg.jpg",
-    price: 25,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-  },
-  {
-    id: 10,
-    title: "Our Moon",
-    src: "assets/images/our moon.jpg",
-    price: 30,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-  },
-  {
-    id: 11,
-    title: "Entanglad Life",
-    src: "assets/images/entangled life.jpg",
-    price: 20,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-  },
-  {
-    id: 12,
-    title: "Bear",
-    src: "assets/images/bear.jpg",
-    price: 35,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer..",
-  },
-  {
-    id: 13,
-    title: "Time Shelter",
-    src: "assets/images/time shelter.jpg",
-    price: 15,
-    count: 1,
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-  },
-];
+
+//Fetch and display products
+
+function fetchAndDisplayProducts() {
+  fetch("https://openlibrary.org/subjects/fiction.json?limit=26")
+    .then((res) => res.json())
+    .then((data) => {
+      allBooks = data.works;
+      displayProducts(allBooks, productCardContainer, currentPage, rowCount);
+      setupPagination(allBooks, pageItemnext, rowCount);
+    })
+    .catch((error) => console.log("Error fetching data:", error));
+}
+fetchAndDisplayProducts();
 
 //Generate Products List
 function displayProducts(
-  allProducts,
+  allBooks,
   productCardContainer,
   currentPage,
   rowCount
@@ -144,30 +40,22 @@ function displayProducts(
   let endIndex = currentPage * rowCount;
   let startIndex = endIndex - rowCount;
 
-  fetch("https://openlibrary.org/subjects/fiction.json?limit=15")
-    .then((res) => res.json())
-    .then((data) => {
-      let bookData = data.works;
-      let paginatedProduct = bookData.slice(startIndex, endIndex);
+  let paginatedProduct = allBooks.slice(startIndex, endIndex);
 
-      paginatedProduct.forEach(function (product) {
-        const title = product.title;
-        const description = product.description || "No description available";
-        const price = "20.00"; // Example price
-        const src = product.cover_id
-          ? `https://covers.openlibrary.org/b/id/${product.cover_id}-L.jpg`
-          : "path/to/default-cover.jpg";
+  paginatedProduct.forEach(function (product) {
+    const title = product.title;
+    const description = product.description || "No description available";
+    const price = product.edition_count; // Example price
+    const src = product.cover_id
+      ? `https://covers.openlibrary.org/b/id/${product.cover_id}-L.jpg`
+      : "path/to/default-cover.jpg";
+    const productKey = product.key; // Use the product key directly
 
-        productCardContainer.insertAdjacentHTML(
-          "beforeend",
-          `<div class="card product-card mb-3"><div class="row g-0"><div class="col-md-4"><img src="${src}" class="img-fluid rounded-start card-img product-card-img" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">${title}</h5><h6 class="card-subtitle mb-3 mt-3 text-body-secondary">${price}$</h6><p class="card-text">${description}</p><button class="btn btn-card" onclick="addProductToCart(' +
-            product.id +
-            ')" type="submit">add to cart</button> <button class="btn btn-card"  type="submit"><a href="components/product-details.html?id=' +
-            product.id +
-            '" >See More ...</a></button></div></div></div></div>`
-        );
-      });
-    });
+    productCardContainer.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card product-card mb-3"><div class="row g-0"><div class="col-md-4"><img src="${src}" class="img-fluid rounded-start card-img product-card-img" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">${title}</h5><h6 class="card-subtitle mb-3 mt-3 text-body-secondary">${price}$</h6><p class="card-text">${description}</p><button class="btn btn-card" onclick="addProductToCart('${productKey}')" type="submit">add to cart</button> <button class="btn btn-card" type="submit"><a href="components/product-details.html?id=${productKey}">See More ...</a></button></div></div></div></div>`
+    );
+  });
 }
 
 //Create Modal
@@ -183,52 +71,48 @@ function openModal() {
 }
 
 //Add product to cart
-function addProductToCart(productId) {
+function addProductToCart(productKey) {
   //Return the product that have the same ID as the selected product
-  let selectedProduct = allProducts.find((product) => product.id === productId);
+  let selectedProduct = allBooks.find((product) => product.key === productKey);
+  console.log("selectedPro:", selectedProduct);
 
+  if (!selectedProduct) {
+    console.error(`Product with ID ${productKey} not found.`);
+    return;
+  }
   //Check selected product is in cart or not
-  let hasProduct = shoppingCart.some((product) => product.id === productId);
+  let hasProduct = shoppingCart.some((product) => product.key === productKey);
   if (hasProduct) {
     openModal();
   } else {
+    selectedProduct.count = 1; // Initialize the count property
     shoppingCart.push(selectedProduct);
+    console.log("shopcart", shoppingCart);
     cartProductGenerator(shoppingCart);
     calTotalPrice(shoppingCart);
   }
 }
 
 //Generate Shopping Cart(Basket)
-function cartProductGenerator(allProductsArray) {
+function cartProductGenerator(allBooksArray) {
   shopCartContainer.innerHTML = "";
   cartEmptyMess.innerHTML = "";
-  allProductsArray.forEach(function (product) {
-    let content =
-      '<ol class="list-group shop-cart p-2"><li class="list-group-item shop-cart-item d-flex justify-content-between align-items-center pb-3">  <div class="product-details d-flex align-items-center"><div class="product-title" >' +
-      product.title +
-      '</div></dive><span class="product-price">' +
-      product.price +
-      '$</span><span  class="product-count">' +
-      product.count +
-      '</span></div><div class="product-actions d-flex align-items-center"><i class="fa fa-trash-o delete" onclick="removeProduct(' +
-      product.id +
-      ')"></i><i class="fa fa-plus plus"  onclick="productCount(' +
-      product.id +
-      ')"></i></div></li></ol>';
+  allBooksArray.forEach(function (product) {
+    let content = `<ol class="list-group shop-cart p-2"><li class="list-group-item shop-cart-item d-flex justify-content-between align-items-center pb-3">  <div class="product-details d-flex align-items-center"><div class="product-title" >${product.title}</div></dive><span class="product-price">${product.edition_count}$</span><span  class="product-count">${product.count}</span></div><div class="product-actions d-flex align-items-center"><i class="fa fa-trash-o delete" onclick="removeProduct('${product.key}')"></i><i class="fa fa-plus plus"  onclick="productCount('${product.key}')"></i></div></li></ol>`;
 
     shopCartContainer.insertAdjacentHTML("beforeend", content);
   });
 }
 
 //remove selected product
-function removeProduct(productId) {
+function removeProduct(productKey) {
   //Update new value for shopping cart
   shoppingCart = shoppingCart.filter(
     (product) =>
       //Returns all products that do not have the same ID as the selected product
-      product.id !== productId
+      product.key !== productKey
   );
-  allProducts.forEach((product) => {
+  allBooks.forEach((product) => {
     product.count = 1;
   });
   //Update the UI
@@ -241,7 +125,7 @@ function removeProduct(productId) {
 
 function removeAllProducts() {
   shoppingCart = [];
-  allProducts.forEach((product) => {
+  allBooks.forEach((product) => {
     product.count = 1;
   });
   cartProductGenerator(shoppingCart);
@@ -250,8 +134,8 @@ function removeAllProducts() {
 }
 
 //Update quantity of product
-function productCount(productId) {
-  let selectedPro = shoppingCart.find((product) => product.id === productId);
+function productCount(productKey) {
+  let selectedPro = shoppingCart.find((product) => product.key === productKey);
   if (selectedPro) {
     selectedPro.count++; // Increment the count of the product
     cartProductGenerator(shoppingCart); // Update the UI
@@ -261,21 +145,23 @@ function productCount(productId) {
 
 //Calculate total price
 
-function calTotalPrice(allProductsArray) {
+function calTotalPrice(allBooksArray) {
   let totalPrice = 0;
 
-  allProductsArray.forEach(
-    (product) => (totalPrice += product.price * product.count)
-  );
+  allBooksArray.forEach((product) => {
+    totalPrice += product.edition_count * product.count;
+    console.log(product.count);
+  });
 
   totalPriceElem.innerHTML = "Total Price: " + " " + totalPrice;
+  console.log(totalPriceElem);
 }
 
 //Pagination
 
 // update pagination buttons dynamically
-function setupPagination(allProducts, pageItemnext, rowCount) {
-  let pageCount = Math.ceil(allProducts.length / rowCount);
+function setupPagination(allBooks, pageItemnext, rowCount) {
+  let pageCount = Math.ceil(allBooks.length / rowCount);
 
   for (let i = 1; i < pageCount + 1; i++) {
     paginationBtnGenerator(i);
@@ -301,7 +187,7 @@ function paginationBtnGenerator(page) {
 //change the current page and update the displayed products
 function changePage(page) {
   currentPage = page;
-  displayProducts(allProducts, productCardContainer, currentPage, rowCount);
+  displayProducts(allBooks, productCardContainer, currentPage, rowCount);
   updatePaginationBtnState();
 }
 
@@ -319,28 +205,31 @@ function updatePaginationBtnState() {
 }
 
 //activate next button
-let pageCount = Math.ceil(allProducts.length / rowCount);
 
 nextPaginatioBtn.addEventListener("click", () => {
+  let pageCount = Math.ceil(allBooks.length / rowCount);
+
   currentPage++;
   if (currentPage > pageCount) {
     currentPage = 1; //navigate to first page
   }
-  displayProducts(allProducts, productCardContainer, currentPage, rowCount);
+  displayProducts(allBooks, productCardContainer, currentPage, rowCount);
   updatePaginationBtnState();
 });
 
 //activate previous button
 previousPaginationBtn.addEventListener("click", () => {
+  let pageCount = Math.ceil(allBooks.length / rowCount);
+
   currentPage--;
   if (currentPage === 0) {
     currentPage = pageCount; //navigate to last page
   }
-  displayProducts(allProducts, productCardContainer, currentPage, rowCount);
+  displayProducts(allBooks, productCardContainer, currentPage, rowCount);
   updatePaginationBtnState();
 });
-displayProducts(allProducts, productCardContainer, currentPage, rowCount);
-setupPagination(allProducts, pageItemnext, rowCount);
+displayProducts(allBooks, productCardContainer, currentPage, rowCount);
+setupPagination(allBooks, pageItemnext, rowCount);
 
 //Handle Product Search
 searchBtn.addEventListener("click", (event) => {
@@ -356,7 +245,7 @@ function handleProductSearch() {
     return;
   }
 
-  let productDetailedPart = allProducts.find(
+  let productDetailedPart = allBooks.find(
     (product) => product.title.toLowerCase() === searchTerm.toLowerCase()
   );
 

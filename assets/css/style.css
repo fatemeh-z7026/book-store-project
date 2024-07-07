@@ -55,7 +55,7 @@ header {
   /* height: fit-content; */
   background-color: #eeeeee;
   width: 100%;
-  max-width: 280px;
+  max-width: 270px;
   font-size: 1rem;
   /* border: solid 1px var(--border-color); */
 }
@@ -118,6 +118,8 @@ header {
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 100%;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .product-details {
