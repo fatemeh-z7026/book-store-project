@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Category</title>
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/assets/css/category.css" />
+    <link rel="stylesheet" href="/assets/css/global-style.css">
+  </head>
+  <body>
+   
+
+    <section>
+      <div class="wrapper">
+        <div class="product-card-container row-cols-1 row-cols-md-3 g-4">
+        </div>
+
+        <div class="shop-cart-container">
+          <div class="basket-item">
+          </div>
+          <p class="empty-message" >No Item!</p>
+          <div class="total-price">Total Price</div>
+          <button class="btn btn-card btn-remove-all m-3" onclick="removeAllProducts()">Delete All</button>
+        </div>
+
+      <div class="pagination-container">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination pagination-lg d-flex justify-content-center ">
+            <li id="preBtn" class="page-item pre-page-item"><a class="page-link " href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span></a></li>
+              <li id="nxtBtn" class="page-item next-page-item" ><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li></ul></nav>
+              
+    </div>
+    </section>
+    
+    <script src="/js/category.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/91bf81b0d2.js"
+      crossorigin="anonymous"
+    ></script>
+
+  </body>
+</html>
