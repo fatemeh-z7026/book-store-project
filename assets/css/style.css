@@ -13,10 +13,10 @@ header {
   padding: 0.5rem 2rem;
 }
 
-.nav-link {
+.navbar-link {
   color: #fff;
 }
-.nav-link:hover {
+.navbar-link:hover {
   color: #fff;
 }
 .nav-item {
@@ -68,11 +68,12 @@ header {
 }
 
 /*Drop Down*/
-.dropdown-item{
+
+.dropdown-item {
   font-size: 1.3rem;
   font-weight: 400;
 }
-.dropdown-item:hover{
+.dropdown-item :hover {
   background-color: #00676912;
 }
 

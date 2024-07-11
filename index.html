@@ -6,8 +6,8 @@
     <title>Home</title>
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
-    <link rel="stylesheet" href="/assets/css/global-style.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/global-style.css" />
+    <link rel="stylesheet" href="/assets/css/footer.css" />
   </head>
   <body>
     <header>
@@ -34,31 +34,68 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Home</a>
+                <a
+                  class="nav-link navbar-link"
+                  aria-current="page"
+                  href="/home-page"
+                  >Home</a
+                >
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Category</a>
-              </li> -->
+
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a
+                  class="nav-link dropdown-toggle navbar-link"
+                  href="/category"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
                   Category
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Arts</a></li>
-                  <li><a class="dropdown-item" href="#">children</a></li>
-                  <li><a class="dropdown-item" href="#">Biography</a></li>
-                  <li><a class="dropdown-item" href="#">Health</a></li>
-                  <li><a class="dropdown-item" href="#">Fiction</a></li>
-                  <li><a class="dropdown-item" href="#">Science</a></li>
-                  <li><a class="dropdown-item" href="#">History</a></li>
-                  <li><a class="dropdown-item" href="#">Business</a></li>
+                  <li>
+                    <a class="dropdown-item nav-link" href="/arts">Arts</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item nav-link" href="/children"
+                      >children</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item nav-link" href="biography"
+                      >Biography</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item nav-link" href="/health">Health</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item nav-link" href="/fiction"
+                      >Fiction</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item nav-link" href="/science"
+                      >Science</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item nav-link" href="/history"
+                      >History</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item nav-link" href="/business"
+                      >Business</a
+                    >
+                  </li>
                 </ul>
               </li>
               <li class="nav-item about-us">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link navbar-link" href="/about-us">About Us</a>
               </li>
             </ul>
-            
+
             <form class="d-flex" role="search">
               <input
                 class="form-control me-2 search-input"
@@ -66,30 +103,37 @@
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button id="search-btn" class="btn btn-search"><a  >Search</a></button>
+              <button id="search-btn" class="btn btn-search">
+                <a>Search</a>
+              </button>
             </form>
-       
           </div>
         </div>
       </nav>
     </header>
-
-    
+    <div id="content"></div>
     <footer class="footer">
- 
       <ul class="social-icon">
-        <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
             <ion-icon name="logo-facebook"></ion-icon>
-          </a></li>
-        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
             <ion-icon name="logo-twitter"></ion-icon>
-          </a></li>
-        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
             <ion-icon name="logo-linkedin"></ion-icon>
-          </a></li>
-        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
             <ion-icon name="logo-instagram"></ion-icon>
-          </a></li>
+          </a>
+        </li>
       </ul>
       <ul class="menu">
         <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
@@ -97,7 +141,6 @@
         <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
         <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
         <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
-  
       </ul>
       <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
     </footer>
@@ -107,6 +150,6 @@
       src="https://kit.fontawesome.com/91bf81b0d2.js"
       crossorigin="anonymous"
     ></script>
-
+    <script type="module" src="/js/spa.js"></script>
   </body>
 </html>
