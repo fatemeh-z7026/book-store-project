@@ -14,7 +14,7 @@ header {
 }
 
 .navbar-link {
-  color: #fff;
+  color: #fff !important;
 }
 .navbar-link:hover {
   color: #fff;

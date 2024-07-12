@@ -18,6 +18,13 @@ $input-focus-box-shadow:0 0 0 0.20rem #40A578;
 $carousel-control-icon-width:5rem;
 $carousel-control-icon-height:5rem;
 $carousel-control-color:#f2855e;
+$dropdown-link-active-bg:#eff5f2;
+$dropdown-link-hover-bg:#eff5f2;
+
+  // Custom CSS rule to apply the variable to .nav-link class
+  .nav-link {
+    color: #000 !important;
+  }
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/bootstrap/scss/functions";
