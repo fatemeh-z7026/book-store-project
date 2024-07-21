@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="/main.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/global-style.css" />
+    <link rel="stylesheet" href="/assets/css/home-page.css" />
     <link rel="stylesheet" href="/assets/css/footer.css" />
+    <link rel="stylesheet" href="/assets/font-awesome/css/all.min.css" />
   </head>
   <body>
-
     <header>
       <nav class="navbar navbar-dark navbar-expand-lg">
         <div class="container-fluid">
@@ -35,65 +36,20 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a
-                  class="nav-link navbar-link"
-                  aria-current="page"
-                  href="/home-page"
+                <a class="nav-link navbar-link" aria-current="page" href="/"
                   >Home</a
                 >
               </li>
 
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle navbar-link"
-                  href="/category"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+              <li class="nav-item about-us">
+                <a class="nav-link navbar-link" href="/components/category.html"
+                  >Category</a
                 >
-                  Category
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item nav-link" href="/arts">Arts</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item nav-link" href="/children"
-                      >children</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item nav-link" href="biography"
-                      >Biography</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item nav-link" href="/health">Health</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item nav-link" href="/fiction"
-                      >Fiction</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item nav-link" href="/science"
-                      >Science</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item nav-link" href="/history"
-                      >History</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item nav-link" href="/business"
-                      >Business</a
-                    >
-                  </li>
-                </ul>
               </li>
               <li class="nav-item about-us">
-                <a class="nav-link navbar-link" href="/about-us">About Us</a>
+                <a class="nav-link navbar-link" href="/components/about-us.html"
+                  >About Us</a
+                >
               </li>
             </ul>
 
@@ -113,6 +69,51 @@
       </nav>
     </header>
     <div id="content"></div>
+    <div class="home-container">
+      <h1 class="home-page-header">We Keep You Reading</h1>
+      <div class="carsoule-container">
+        <div
+          id="carousel"
+          class="carousel slide"
+          data-ride="carousel"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner"></div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!--Top Category -->
+      <h3 class="category-title">top category</h3>
+      <div class="swiper-slider"></div>
+
+      <!--Best Seller -->
+      <div class="best-seller-caption">
+        <h3 class="Bestsellers-title">Bestsellers</h3>
+        <a href="#">View All</a>
+      </div>
+      <div
+        class="row row-cols-1 row-cols-md-4 g-4 best-sell-card-container"
+      ></div>
+
+      <br />
+    </div>
 
     <footer class="footer">
       <ul class="social-icon">
