@@ -6,27 +6,27 @@ document.addEventListener("DOMContentLoaded", function () {
   let sliderImages = [
     {
       id: 1,
-      src: "/assets/images/home-carouisel/carouisel-1.png",
+      src: "assets/images/home-carouisel/carouisel-1.png",
     },
     {
       id: 2,
-      src: "/assets/images/home-carouisel/carouisel-2.png",
+      src: "assets/images/home-carouisel/carouisel-2.png",
     },
     {
       id: 3,
-      src: "/assets/images/home-carouisel/carouisel-3.png",
+      src: "assets/images/home-carouisel/carouisel-3.png",
     },
     {
       id: 4,
-      src: "/assets/images/home-carouisel/carouisel-4.png",
+      src: "assets/images/home-carouisel/carouisel-4.png",
     },
     {
       id: 5,
-      src: "/assets/images/home-carouisel/carouisel-5.png",
+      src: "assets/images/home-carouisel/carouisel-5.png",
     },
     {
       id: 6,
-      src: "/assets/images/home-carouisel/carouisel-6.png",
+      src: "assets/images/home-carouisel/carouisel-6.png",
     },
   ];
 
@@ -55,42 +55,42 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       id: 1,
       title: "Children's Books",
-      src: "/assets/images/category-list/children-category.svg",
+      src: "assets/images/category-list/children-category.svg",
     },
     {
       id: 2,
       title: "Arts",
-      src: "/assets/images/category-list/arts-category.svg",
+      src: "assets/images/category-list/arts-category.svg",
     },
     {
       id: 3,
       title: "Biography",
-      src: "/assets/images/category-list/biography-category.svg",
+      src: "assets/images/category-list/biography-category.svg",
     },
     {
       id: 4,
       title: "Health",
-      src: "/assets/images/category-list/health-category.svg",
+      src: "assets/images/category-list/health-category.svg",
     },
     {
       id: 5,
       title: "Fiction",
-      src: "/assets/images/category-list/fiction-category.svg",
+      src: "assets/images/category-list/fiction-category.svg",
     },
     {
       id: 6,
       title: "Science",
-      src: "/assets/images/category-list/science-category.svg",
+      src: "assets/images/category-list/science-category.svg",
     },
     {
       id: 7,
       title: "History",
-      src: "/assets/images/category-list/history-category.svg",
+      src: "assets/images/category-list/history-category.svg",
     },
     {
       id: 8,
       title: "Business",
-      src: "/assets/images/category-list/business-category.svg",
+      src: "assets/images/category-list/business-category.svg",
     },
   ];
 
@@ -164,7 +164,7 @@ let bestSellerBook = [
   {
     id: 1,
     title: "Dark Window",
-    src: "/assets/images/best-sellers/dark window.jpg",
+    src: "assets/images/best-sellers/dark window.jpg",
     price: 20,
     count: 1,
     description:
@@ -173,7 +173,7 @@ let bestSellerBook = [
   {
     id: 2,
     title: "Lost Bookshop",
-    src: "/assets/images/best-sellers/lost bookshop.jpg",
+    src: "assets/images/best-sellers/lost bookshop.jpg",
     price: 35,
     count: 1,
     description:
@@ -182,7 +182,7 @@ let bestSellerBook = [
   {
     id: 3,
     title: "Happy Girl",
-    src: "/assets/images/best-sellers/a good happy girl.jpg",
+    src: "assets/images/best-sellers/a good happy girl.jpg",
     price: 5,
     count: 1,
     description:
@@ -191,7 +191,7 @@ let bestSellerBook = [
   {
     id: 4,
     title: "Black Girl",
-    src: "/assets/images/best-sellers/black girl.jpg",
+    src: "assets/images/best-sellers/black girl.jpg",
     price: 15,
     count: 1,
     description:
